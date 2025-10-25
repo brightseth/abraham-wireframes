@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abraham.ai Wireframes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .wireframe {
+            background: white;
+            border: 2px solid #333;
+            margin-bottom: 40px;
+            padding: 0;
+        }
+
+        .view-label {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .connect-btn {
+            background: #8B4513;
+            color: white;
+            padding: 10px 30px;
+            border-radius: 4px;
+            border: none;
+            font-size: 16px;
+        }
+
+        /* Daily view styles */
+        .daily-view {
+            padding: 40px;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .day-counter {
+            font-size: 16px;
+            color: #999;
+        }
+
+        .countdown {
+            font-size: 14px;
+            color: #8B4513;
+            margin-top: 5px;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 2px dashed #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .story-section {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .story-text {
+            background: #f9f9f9;
+            padding: 30px;
+            border: 1px dashed #999;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Auction view styles */
+        .auction-view {
+            padding: 40px;
+        }
+
+        .auction-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .auction-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .auction-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .auction-countdown {
+            font-size: 20px;
+            color: #8B4513;
+            font-weight: bold;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-item:last-child:nth-child(3n + 1) {
+            grid-column: 2;
+        }
+
+        .grid-item {
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .grid-item:hover {
+            border-color: #8B4513;
+        }
+
+        .grid-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-bottom: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        .grid-info {
+            padding: 15px;
+            background: white;
+        }
+
+        .grid-day {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .grid-bid {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .grid-time {
+            font-size: 12px;
+            color: #8B4513;
+        }
+
+        .rest-day {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+            color: #999;
+            font-style: italic;
+        }
+
+        .notes {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fffbea;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .notes h3 {
+            margin-bottom: 10px;
+            color: #92400e;
+        }
+
+        .notes ul {
+            margin-left: 20px;
+            color: #78350f;
+        }
+
+        .notes li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="background: #333; color: white; padding: 40px; margin-bottom: 40px; border-radius: 8px;">
+            <h1 style="text-align: center; margin-bottom: 20px; font-size: 36px;">Abraham.ai Wireframes</h1>
+            <p style="text-align: center; font-size: 18px; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                Proposed UI/UX for Abraham's Covenant launch. Based on Oct 25 design session feedback focusing on: image-first daily view, efficient auction grid, streamlined navigation, and week-based archive structure.
+            </p>
+            <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #999;">
+                For: Gene, Henry, and team • Date: Oct 25, 2025 • Status: For Review
+            </div>
+            <div style="display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap;">
+                <a href="#view1" style="background: white; color: #333; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-size: 14px;">Daily View</a>
+                <a href="#view2" style="background: white; color: #333; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-size: 14px;">Auction Day</a>
+                <a href="#view3" style="background: white; color: #333; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-size: 14px;">Archive</a>
+                <a href="#view4" style="background: white; color: #333; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-size: 14px;">My Collection</a>
+                <a href="#summary" style="background: #8B4513; color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-size: 14px;">Summary</a>
+            </div>
+        </div>
+
+        <div id="view1"></div>
+
+        <!-- Daily View -->
+        <div class="wireframe">
+            <div class="view-label">View 1: Daily View (Sunday-Friday)</div>
+
+            <div class="header">
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <div class="logo"></div>
+                    <div class="nav">
+                        <a href="#" class="nav-link">About</a>
+                    </div>
+                </div>
+                <button class="connect-btn">Connect</button>
+            </div>
+
+            <div class="daily-view">
+                <div class="title-section">
+                    <h1 class="title">Abraham's Covenant</h1>
+                    <p class="subtitle">Abraham creates 6 days a week and rests on the 7th day, as the week's creations are auctioned</p>
+                    <p class="day-counter">Day 42 of 4,074</p>
+                    <p class="countdown">Next auction in 2 days, 14 hours</p>
+                </div>
+
+                <div class="image-container">
+                    [Full-screen artwork]
+                </div>
+
+                <div class="story-section">
+                    <h2 class="story-title">Creation Title</h2>
+                    <div class="story-text">
+                        Story text and narrative about today's creation appears here. This is where Abraham shares the context, meaning, and inspiration behind the daily work...
+                    </div>
+                </div>
+            </div>
+
+            <div class="notes">
+                <h3>Design Notes:</h3>
+                <ul>
+                    <li>Image dominates the view (60-70% of screen)</li>
+                    <li>Day counter always visible - reinforces 13-year commitment</li>
+                    <li>Minimal header - logo = home, About = full covenant/info</li>
+                    <li>Countdown creates anticipation for Saturday auction</li>
+                    <li>Sunday-Friday: creation days / Saturday: rest & auction day</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="view2"></div>
+        <!-- Auction View -->
+        <div class="wireframe">
+            <div class="view-label">View 2: Auction Day (Saturday - 7th Day)</div>
+
+            <div class="header">
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <div class="logo"></div>
+                    <div class="nav">
+                        <a href="#" class="nav-link">About</a>
+                    </div>
+                </div>
+                <button class="connect-btn">Connect</button>
+            </div>
+
+            <div class="auction-view">
+                <div class="auction-header">
+                    <h1 class="auction-title">Week 1 Auction — Abraham Rests</h1>
+                    <p class="auction-subtitle">The week's 6 creations are auctioned on the 7th day</p>
+                    <p class="auction-countdown">Auction ends in 8 hours, 23 minutes</p>
+                </div>
+
+                <div class="grid">
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Sunday, Oct 25</div>
+                            <div class="grid-bid">Current bid: 0.15 ETH</div>
+                            <div class="grid-time">Ends in 8h 23m</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Monday, Oct 26</div>
+                            <div class="grid-bid">Current bid: 0.1 ETH</div>
+                            <div class="grid-time">Ends in 8h 23m</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Tuesday, Oct 27</div>
+                            <div class="grid-bid">Current bid: 0.32 ETH</div>
+                            <div class="grid-time">Ends in 8h 23m</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Wednesday, Oct 28</div>
+                            <div class="grid-bid">Current bid: 0.1 ETH</div>
+                            <div class="grid-time">Ends in 8h 23m</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Thursday, Oct 29</div>
+                            <div class="grid-bid">Current bid: 0.28 ETH</div>
+                            <div class="grid-time">Ends in 8h 23m</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Friday, Oct 30</div>
+                            <div class="grid-bid">Current bid: 0.19 ETH</div>
+                            <div class="grid-time">Ends in 8h 23m</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item rest-day">
+                        <div class="grid-image" style="background: #f9f9f9;">
+                            <span style="color: #999;">Abraham rests</span>
+                        </div>
+                        <div class="grid-info">
+                            <div class="grid-day">Saturday, Oct 31</div>
+                            <div style="color: #999; font-style: italic; margin-top: 5px;">The 7th day</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notes">
+                <h3>Design Notes:</h3>
+                <ul>
+                    <li>Saturday (7th day) = auction day when Abraham rests</li>
+                    <li>Shows all 7 days: Sunday-Friday creations on auction + Saturday rest day</li>
+                    <li>Grid layout shows complete weekly cycle</li>
+                    <li>Each piece clickable to view full screen with story</li>
+                    <li>Real-time bid updates and countdown</li>
+                    <li>All start at 0.1 ETH minimum</li>
+                    <li>Saturday slot visually distinct as rest day (no bid info)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="view3"></div>
+        <!-- Archive/History Navigation -->
+        <div class="wireframe">
+            <div class="view-label">View 3: Archive / Past Creations</div>
+
+            <div class="header">
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <div class="logo"></div>
+                    <div class="nav">
+                        <a href="#" class="nav-link">Archive</a>
+                        <a href="#" class="nav-link">About</a>
+                    </div>
+                </div>
+                <button class="connect-btn">Connect</button>
+            </div>
+
+            <div class="daily-view">
+                <div class="title-section">
+                    <h1 class="title">Archive</h1>
+                    <p class="subtitle">Browse all 4,074 days of Abraham's Covenant</p>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div style="display: inline-flex; gap: 20px; align-items: center; background: #f9f9f9; padding: 15px 30px; border-radius: 8px;">
+                        <button style="background: none; border: 2px solid #333; padding: 8px 16px; border-radius: 4px; cursor: pointer;">← Previous Week</button>
+                        <div style="font-size: 18px; font-weight: bold;">Week 1 • Oct 25-31, 2025</div>
+                        <button style="background: none; border: 2px solid #ddd; padding: 8px 16px; border-radius: 4px; cursor: not-allowed; color: #999;">Next Week →</button>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Sunday, Oct 25</div>
+                            <div class="grid-bid">Sold: 0.15 ETH</div>
+                            <div class="grid-time" style="color: #666;">Day 1 of 4,074</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Monday, Oct 26</div>
+                            <div class="grid-bid">Sold: 0.12 ETH</div>
+                            <div class="grid-time" style="color: #666;">Day 2 of 4,074</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Tuesday, Oct 27</div>
+                            <div class="grid-bid">Sold: 0.32 ETH</div>
+                            <div class="grid-time" style="color: #666;">Day 3 of 4,074</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Wednesday, Oct 28</div>
+                            <div class="grid-bid">Sold: 0.18 ETH</div>
+                            <div class="grid-time" style="color: #666;">Day 4 of 4,074</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Thursday, Oct 29</div>
+                            <div class="grid-bid">Sold: 0.28 ETH</div>
+                            <div class="grid-time" style="color: #666;">Day 5 of 4,074</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Friday, Oct 30</div>
+                            <div class="grid-bid">Sold: 0.19 ETH</div>
+                            <div class="grid-time" style="color: #666;">Day 6 of 4,074</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item rest-day">
+                        <div class="grid-image" style="background: #f9f9f9;">
+                            <span style="color: #999;">Abraham rests</span>
+                        </div>
+                        <div class="grid-info">
+                            <div class="grid-day">Saturday, Oct 31</div>
+                            <div style="color: #999; font-style: italic; margin-top: 5px;">The 7th day</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notes">
+                <h3>Design Notes:</h3>
+                <ul>
+                    <li>Archive link in nav takes you to browseable history</li>
+                    <li>Navigate by week to maintain 7-day covenant structure</li>
+                    <li>Shows auction results for completed weeks</li>
+                    <li>Each piece still clickable for full view with story</li>
+                    <li>Could add filters: by year, by week number, by price range</li>
+                    <li>Could add search: find specific days or themes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="view4"></div>
+        <!-- My Collection View -->
+        <div class="wireframe">
+            <div class="view-label">View 4: My Collection</div>
+
+            <div class="header">
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <div class="logo"></div>
+                    <div class="nav">
+                        <a href="#" class="nav-link">Archive</a>
+                        <a href="#" class="nav-link">About</a>
+                        <a href="#" class="nav-link" style="color: #8B4513; font-weight: bold;">My Collection</a>
+                    </div>
+                </div>
+                <button class="connect-btn">0x7a...4f2b</button>
+            </div>
+
+            <div class="daily-view">
+                <div class="title-section">
+                    <h1 class="title">My Collection</h1>
+                    <p class="subtitle">Pieces you've claimed from Abraham's Covenant</p>
+                    <p class="day-counter">3 pieces collected</p>
+                </div>
+
+                <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Sunday, Oct 25</div>
+                            <div class="grid-bid">Won for: 0.15 ETH</div>
+                            <div class="grid-time" style="color: #666;">Day 1 of 4,074</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Tuesday, Oct 27</div>
+                            <div class="grid-bid">Won for: 0.32 ETH</div>
+                            <div class="grid-time" style="color: #666;">Day 3 of 4,074</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="grid-image">[Image]</div>
+                        <div class="grid-info">
+                            <div class="grid-day">Friday, Oct 30</div>
+                            <div class="grid-bid">Won for: 0.19 ETH</div>
+                            <div class="grid-time" style="color: #666;">Day 6 of 4,074</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notes">
+                <h3>Design Notes:</h3>
+                <ul>
+                    <li>Shows all pieces you've won from auctions</li>
+                    <li>Connected wallet address shown in Connect button</li>
+                    <li>Each piece shows purchase price and day number</li>
+                    <li>Could add sorting: by date, by price, by week</li>
+                    <li>Could add total stats: total spent, floor value, etc.</li>
+                    <li>Only visible when wallet connected</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="summary"></div>
+        <!-- Summary Section -->
+        <div style="background: #f9f9f9; border: 2px solid #333; padding: 40px; margin-top: 40px;">
+            <h2 style="font-size: 28px; margin-bottom: 20px;">Key Design Decisions</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                <div>
+                    <h3 style="font-size: 20px; margin-bottom: 10px; color: #8B4513;">✓ Implemented</h3>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li><strong>Image-first daily view</strong> - Art dominates 60-70% of screen</li>
+                        <li><strong>Day counter</strong> - "Day X of 4,074" reinforces 13-year commitment</li>
+                        <li><strong>Simplified header</strong> - Logo = home, About = covenant/info</li>
+                        <li><strong>7-day auction grid</strong> - Sunday-Friday work + Saturday rest day</li>
+                        <li><strong>Week-based navigation</strong> - Essential for covenant lore</li>
+                        <li><strong>Archive access</strong> - Browse all past weeks/auction results</li>
+                        <li><strong>My Collection</strong> - Personal gallery of won pieces</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 20px; margin-bottom: 10px; color: #f59e0b;">→ Future Enhancements</h3>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li><strong>High bidder indicator</strong> - Green border or visual flag</li>
+                        <li><strong>Easy bid increment</strong> - One-click to raise your bid</li>
+                        <li><strong>Sealed bids</strong> - Set max bid, auto-increment to that limit</li>
+                        <li><strong>List view toggle</strong> - Alternative to grid (calendar icon vs list icon)</li>
+                        <li><strong>Collection filters</strong> - Sort by date, price, week</li>
+                        <li><strong>Archive search</strong> - Find specific days or themes</li>
+                        <li><strong>About page redesign</strong> - Comprehensive covenant, seeds, team info</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: #fffbea; padding: 20px; border-left: 4px solid #f59e0b; margin-top: 30px;">
+                <h3 style="margin-bottom: 10px; color: #92400e;">🎯 Immediate Priorities (Pre-Launch)</h3>
+                <ol style="margin-left: 20px; color: #78350f; line-height: 1.8;">
+                    <li><strong>Auction functionality</strong> - Ensure bidding, claiming, refunds work smoothly</li>
+                    <li><strong>Content reading</strong> - Fix IPFS vs onchain metadata display</li>
+                    <li><strong>Responsive design</strong> - Test grid layouts on mobile/tablet</li>
+                    <li><strong>Saturday placeholder</strong> - Use Abraham logo or create rest day visual</li>
+                    <li><strong>Navigation clarity</strong> - Finalize Archive link placement and behavior</li>
+                </ol>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: white; border: 2px dashed #333;">
+                <h3 style="margin-bottom: 10px;">💭 Open Questions</h3>
+                <ul style="margin-left: 20px; line-height: 1.8; color: #666;">
+                    <li>Should clicking auction day images go to individual work page or stay in modal?</li>
+                    <li>Do we need calendar/list toggle or just one browsing mode?</li>
+                    <li>Should "My Collection" be in nav or accessed via connected wallet dropdown?</li>
+                    <li>What happens to the covenant text - in About page or remain on homepage?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding: 40px; color: #999; font-size: 14px;">
+            Abraham's Covenant Wireframes • October 25, 2025<br>
+            Questions or feedback? Reach out to Seth
+        </div>
+    </div>
+</body>
+</html>
